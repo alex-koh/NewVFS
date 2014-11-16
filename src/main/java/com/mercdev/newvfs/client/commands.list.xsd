@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+	targetNamespace="http://www.mercdev.com/newvfs/server" 
+	elementFormDefault="qualified" 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:comns="http://www.mercdev.com/newvfs/server">
+
+    <element name="commands">
+    	<complexType>
+    		<sequence>
+    			<element name="item" type="comns:ItemType" 
+    				minOccurs="1" maxOccurs="unbounded"/>
+    		</sequence>
+    		<attribute name="size" type="positiveInteger"/>
+    		<attribute name="fs.seporator" type="string"/>
+    		<attribute name="fs.root" type="string"/>
+    	</complexType>
+    </element>
+
+	<complexType name="ItemType">
+		<sequence>
+			<element name="id" type="comns:IDType"/>
+			<element name="name" type="string"/>
+			<element name="params" type="comns:ParamType"/>
+			<element name="short" type="string"/>
+			<element name="full" type="comns:Description"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="Description">
+		<sequence>
+			<element name="p" type="comns:LineType"
+			minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<simpleType name="ParamType">
+		<restriction base="int">
+			<minInclusive value="0" />
+			<maxInclusive value="2" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IDType">
+		<restriction base="string">
+			<enumeration value="CD" />
+			<enumeration value="QUIT" />
+		</restriction>
+	</simpleType>
+
+	<complexType name="LineType" mixed="true">
+		<sequence>
+			<element name="fs.root" type="string" minOccurs="0" />
+			<element name="fs.seporator" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+</schema>

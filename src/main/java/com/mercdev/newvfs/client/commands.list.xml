@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<commands xmlns="http://www.mercdev.com/newvfs/server" size="2" >
+	<item>
+		<id>CD</id>
+		<name>cd</name>
+		<params>1</params>
+		<short>changing current directory</short>
+		<full>
+			<p>changing current directory</p>
+			<p>0000000000000</p>
+			<p>[<fs.root/><fs.seporator />]dir</p>
+		</full>
+	</item>
+	<item>
+		<id>QUIT</id>
+		<name>quit</name>
+		<params>0</params>
+		<short>closing current connection</short>
+		<full>
+			<p>closing current connection</p>
+		</full>
+	</item>
+</commands>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+	targetNamespace="http://www.mercdev.com/newvfs/fs" 
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fsns="http://www.mercdev.com/newvfs/fs">
+
+    <element name="directory" type="fsns:Node"></element>
+
+    <complexType name="Node">
+    	<sequence>
+            <element name="name" type="string" />
+            <element name="children" minOccurs="0" maxOccurs="1">
+    			<complexType>
+    				<sequence>
+    					<choice>
+    						<element ref="fsns:directory" />
+    						<element name="file" type="fsns:Node" />
+    					</choice>
+    					<element ref="fsns:directory" minOccurs="0"
+    						maxOccurs="unbounded" />
+    					<element ref="fsns:file" minOccurs="0" maxOccurs="unbounded"/>
+    				</sequence>
+    			</complexType>
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <element name="file" type="fsns:Node"></element>
+</schema>

@@ -1,0 +1,1 @@
+This is the trainig project for the purpose of understanding the client-server interaction and multithreading.
